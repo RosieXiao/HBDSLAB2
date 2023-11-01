@@ -1,0 +1,74 @@
+---
+title: "Lab 2"
+author: "Diwen Xiao, Menglu Zhao, Zimo Zhang"
+date: "Nov 1, 2023"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    fig_height: 4.5
+    fig_width: 4.5
+  pdf_document:
+    fig_height: 3.5
+    fig_width: 3.5
+  word_document:
+    toc: no
+---
+R package Github links: https://github.com/RosieXiao/HBDSLAB2
+
+Functions coding part Github link: https://github.com/mezlulu/lab_2_group7
+
+```{r options, include=FALSE}
+knitr::opts_chunk$set(cache=FALSE, error=TRUE, message=TRUE, warning=TRUE)
+```
+
+```{r}
+library(devtools)
+setwd('..') 
+devtools::install_github('RosieXiao/HBDSLAB2', force = TRUE)
+```
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(HBDSLAB2)
+```
+
+
+## Function I
+Write a function that makes a boxplot of payments by DRG code. Make it an option for your function to do this for either the average Medicare payments, the average total payment, or the average covered charges.
+
+```{r,fig.width=8}
+boxplot2(DRG,'DRG Definition', 'Average Covered Charges')
+```
+
+```{r,fig.width=8}
+boxplot2(DRG,'DRG Definition', 'Average Medicare Payments')
+```
+
+```{r,fig.width=8}
+boxplot2(DRG,'DRG Definition', 'Average Total Payments')
+```
+
+
+## Function II
+Write a function that calculates statistics over all of the DRG codes for average Medicare payments. Make it an option in your function to calculate either the mean, median, or standard deviation of the DRG codes.
+
+```{r}
+stats_over_DRG(DRG,"median")
+```
+
+```{r}
+stats_over_DRG(DRG,"sd")
+```
+
+```{r}
+stats_over_DRG(DRG,"mean")
+```
+
+
+
+
+
+
+
